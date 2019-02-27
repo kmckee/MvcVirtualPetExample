@@ -6,21 +6,20 @@ namespace MvcVirtualPets.Repositories
 {
     public class PetRepository
     {
-        Dictionary<int, Pet> pets = new Dictionary<int, Pet>()
+        PetContext db;
+        public PetRepository(PetContext db)
         {
-            { 1, new Pet() { Id = 1, Name = "Roscoe" } },
-            { 2, new Pet() { Id = 2, Name = "Biggs" } },
-            { 3, new Pet() { Id = 3, Name = "Bella" } }
-        };
+            this.db = db; 
+        }
 
         public IEnumerable<Pet> GetAll()
         {
-            return pets.Values.ToList();
+            return db.Pets.ToList();
         }
 
         public Pet GetById(int id)
         {
-            return pets[id];
+            return db.Pets.Single(pet => pet.Id == id);
         }
     }
 }

@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MvcVirtualPets.Controllers;
 using MvcVirtualPets.Models;
+using MvcVirtualPets.Repositories;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
@@ -12,7 +13,9 @@ namespace MvcVirtualPets.Tests
         PetController underTest;
         public PetControllerTests()
         {
-            underTest = new PetController();
+            var context = new PetContext();
+            var repo = new PetRepository(context);
+            underTest = new PetController(repo);
         }
 
         [Fact]

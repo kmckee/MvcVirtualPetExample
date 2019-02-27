@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using MvcVirtualPets.Repositories;
 
 namespace MvcVirtualPets
 {
@@ -16,6 +17,10 @@ namespace MvcVirtualPets
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddDbContext<PetContext>();
+
+            services.AddScoped<PetRepository, PetRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
