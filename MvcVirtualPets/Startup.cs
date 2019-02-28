@@ -20,6 +20,8 @@ namespace MvcVirtualPets
 
             services.AddDbContext<PetContext>();
 
+            // Most services that we register will look something like this.
+            // Eventually, we'll depend on interfaces rather than implementations.
             services.AddScoped<PetRepository, PetRepository>();
         }
 

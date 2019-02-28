@@ -13,6 +13,11 @@ namespace MvcVirtualPets.Tests
         PetController underTest;
         public PetControllerTests()
         {
+            // The code below is bad!  Our tests rely on multiple classes, a database,
+            // and even specific data inside the database.  Tests like this are known as
+            // integration tests.  We will eventually refactor this test to remove all
+            // external dependencies so that our test is a Unit Test (not integration) and
+            // tests only the PetController class in isolation.
             var context = new PetContext();
             var repo = new PetRepository(context);
             underTest = new PetController(repo);
