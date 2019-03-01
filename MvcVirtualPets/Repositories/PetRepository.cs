@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using MvcVirtualPets.Models;
 
 namespace MvcVirtualPets.Repositories
@@ -21,5 +22,34 @@ namespace MvcVirtualPets.Repositories
         {
             return db.Pets.Single(pet => pet.Id == id);
         }
+
+        public void Create(Pet pet)
+        {
+            //db.Set<Pet>().Add(pet);
+            db.Pets.Add(pet);
+            db.SaveChanges();
+        }
+
+        public void Delete(Pet pet)
+        {
+            //db.Set<Pet>().Remove(pet);
+            db.Pets.Remove(pet);
+            db.SaveChanges();
+        }
+
+        public void Save()
+        {
+            db.SaveChanges();
+        }
+
+        public void Update(Pet pet)
+        {
+            //db.Attach(pet);
+            //.Entry(pet).State = EntityState.Modified;
+            db.Update(pet);
+            db.SaveChanges();
+        }
+
+
     }
 }

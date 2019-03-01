@@ -37,9 +37,9 @@ namespace MvcVirtualPets
             // The models are the only time you'll really need to set IDs manually, usually the DB 
             // will handle it for you.
             modelBuilder.Entity<Pet>().HasData(
-                new Pet() { Id = 1, Name = "Roscoe" },
-                new Pet() { Id = 2, Name = "Biggs" },
-                new Pet() { Id = 3, Name = "Bella" }
+                new Pet() { Id = 1, Name = "Roscoe", Description = "Roscoe is a lazy old dog who loves to snuggle" },
+                new Pet() { Id = 2, Name = "Biggs", Description = "Biggs is BIG because he eats whatever he finds"},
+                new Pet() { Id = 3, Name = "Bella", Description = "Sweet Bella is so loyal and loving" }
                 );
 
             // Similar to how OnConfiguring has a default implementation, so does OnModelCreating.
