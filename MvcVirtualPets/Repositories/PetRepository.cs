@@ -45,7 +45,7 @@ namespace MvcVirtualPets.Repositories
         public void Update(Pet pet)
         {
             //db.Attach(pet);
-            //.Entry(pet).State = EntityState.Modified;
+            //db.Entry(entity).State = EntityState.Modified;
             db.Update(pet);
             db.SaveChanges();
         }
